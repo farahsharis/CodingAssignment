@@ -1,0 +1,35 @@
+﻿<h1>Github Issues Search</h1>
+
+<div ng-controller="Home">
+  	<input type="search" ng-model="query" placeholder="filter issues" aria-label="filter issues" />
+<style>
+		table, th, td {
+    		border: 1px solid black;
+   		 	border-collapse: collapse;
+		}
+		th, td{
+		padding: 5px;
+		text-align: left;
+		}
+</style>
+
+	<table>
+		<thead>
+			<tr>
+				<th>Title</th>
+				<th>UserName </th>
+				<th>Assignee Login</th>
+				<th>Body</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="issue in issues | filter:query as results" >
+				<td>{{issue.title}}</td>
+				<td>{{issue.user.login}}</td>
+				<td>{{issue.assignee.login}}</td>
+				<td>{{issue.body}}</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+
