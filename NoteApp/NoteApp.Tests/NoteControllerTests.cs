@@ -22,7 +22,8 @@ namespace NoteApp.Tests
 		[Test]
 		public void given_there_are_no_notes_and_query_parameter_is_passed_when_get_is_called_should_return_an_empty_list()
 		{
-			var query = Guid.NewGuid().ToString();
+			var fixture = new Fixture();
+			var query = fixture.Create<string>();
 			var sut = new NoteController();
 
 			var result = sut.Get(query);
